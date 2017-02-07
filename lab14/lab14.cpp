@@ -27,7 +27,7 @@ int main() {
     cout << "You receive a voucher for $" << moneyPaid << ". Thank you!" << endl;
     
     
-    
+    //I'm going to rewrite this using modulo i just wanted to get my foundation laid out.
     
     return 0;
 }
