@@ -25,12 +25,13 @@ int main () {
         //The calculations for new and old style windchills, as well as their difference, are initialized using input from user
     oldStyle = 0.081 * (3.71 * sqrt(windVel) + 5.81 - 0.25 * windVel) * (windTemp - 91.4) + 91.4;
     newStyle = 35.74 + .6215 * windTemp - 35.75 * pow(windVel, 0.16) + .4275 * windTemp * pow(windVel, 0.16);
-    styleDiff = oldStyle - newStyle;
+        //I use the absolute value of the difference between old and new style to cancel any negative result 
+    styleDiff = std::abs (oldStyle - newStyle);
         //The resulting values output to the screen
     cout << "Windspeed: " << windVel << endl;
     cout << "Old Style Wind Chill: " << oldStyle << endl;
     cout << "New Style Wind Chill: " << newStyle << endl;
-    cout << "Style Difference (Old - New): " << styleDiff << endl;
+    cout << "Style Difference |Old - New|: " << styleDiff << endl;
     
     
     
