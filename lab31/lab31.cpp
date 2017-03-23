@@ -37,16 +37,16 @@ void PhonePlan::SetDataCharge(int dataNeed){
     if (dataNeed >= 30) {
         dataCost = 75.0 + 1.5 * (dataNeed - 10);  
     }
-    else if ((dataNeed < 30) && (dataNeed >= 15) ) {
+    else if (dataNeed >= 15 ) {
         dataCost = 30.0 + 23.0 + 3.0 * (dataNeed - 15) ;
     }
-    else if ((dataNeed < 15) && (dataNeed >= 5)) {
+    else if (dataNeed >= 5) {
         dataCost = 30.0 + 8.0 + 1.5 * (dataNeed - 5);
     }
-    else if ((dataNeed < 5) && (dataNeed >= 1)){
+    else if (dataNeed >= 1){
         dataCost = 30.0 + 5.0 + .75 * (dataNeed - 1);
     }
-    else if ((dataNeed < 1) && (dataNeed > 0)) {
+    else if (dataNeed > 0) {
         dataCost = 35.0;
     }
     else {
