@@ -18,26 +18,26 @@ int NumSwap(int firstNum = 0, int secondNum = 0) {
     return randNum;
 }
     
-double LbToKg(double lb) {
+double LbToKg(double lb) {  //function to calculate kilograms when an argument for pounds is passed
     
     double kg = 0.0;
     kg = lb * 2.2;
-    return kg;
+    return kg;  //returns the value back to int main()
 }    
 
 
-double KgToLb(double kg) {
+double KgToLb(double kg) {    //function to calculate pounds when an argument for kilograms is passed
     
     double lb = 0.0;
     lb = kg / 2.2;
-    return lb;
+    return lb;  //returns the value back to int main()
 }
     
 
 
 
 int main() {
-    
+    //declare and initialize all variables needed to store values from functions
     int lowNum = 0;
     int highNum = 0;
     double randNum = 0.0;
@@ -47,10 +47,10 @@ int main() {
     cin >> lowNum;
     cout << "Enter the high range for your random number generator: ";
     cin >> highNum;
-    randNum = NumSwap(lowNum, highNum);
+    randNum = NumSwap(lowNum, highNum); //calls my random number generator
     cout << "Your random number (in pounds) is " << randNum << endl;
-    kilograms = LbToKg(randNum);
-    pounds = KgToLb(kilograms);
+    kilograms = LbToKg(randNum); // calls my kilogram calculator
+    pounds = KgToLb(kilograms); // calls my pound calculator
     cout << "Which is " << kilograms << " in kilograms" << endl;
     cout << "When converted back to pounds your number is " << pounds << endl;
     
