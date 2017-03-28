@@ -5,15 +5,15 @@
 using namespace std;
 
 
-class TaxCalc {
+class TaxCalc {                   //Setting up my class to make global variables
     
     private:
         double tax;
         
-}
+};
 
-void SetTax(int userMarried, double userWageAmt) {
-    int userMarStat = userMarried;
+void SetTax(int userMarried, double userWageAmt) {           //Calculates tax owed based on 
+    int userMarStat = userMarried;                           //marital status and wages 
     double userWage = userWageAmt;
     double tax = 0.0;
     double adjGrossInc = 0.0;
@@ -55,8 +55,8 @@ void SetTax(int userMarried, double userWageAmt) {
         
     }
 
-double CalcRefund (double userAmtWithheld){
-    double tax = 0.0;
+double CalcRefund (double userAmtWithheld){                 //Determines whether user is issued
+    double tax = 0.0;                                       //a refund or owes more taxes
     double refundOwed = 0.0;
     double taxOwed = 0.0;
     double userWithheld = userAmtWithheld;
@@ -75,10 +75,10 @@ double CalcRefund (double userAmtWithheld){
         break;
         
         default:
-        return -1;
+        return -1.0;
         break;
             }
-    return;
+    return-1.0;
     }
     
 
