@@ -8,7 +8,11 @@ using namespace std;
 class TaxCalc {                   //Setting up my class to make global variables
     
     private:
-        double tax;
+        double tax = 0.0;
+        
+    public:
+        SetTax(int userMarried, double userWageAmt);
+        
         
 };
 
@@ -55,8 +59,8 @@ void SetTax(int userMarried, double userWageAmt) {           //Calculates tax ow
         
     }
 
-double CalcRefund (double userAmtWithheld){                 //Determines whether user is issued
-    double tax = 0.0;                                       //a refund or owes more taxes
+double CalcRefund (double userAmtWithheld, double tax){                 //Determines whether user is issued
+    double userTax = tax;                                                        //a refund or owes more taxes
     double refundOwed = 0.0;
     double taxOwed = 0.0;
     double userWithheld = userAmtWithheld;
@@ -66,11 +70,13 @@ double CalcRefund (double userAmtWithheld){                 //Determines whether
         
         case 1:
         refundOwed = userWithheld - tax;
+        cout << "Your refund comes to $";
         return refundOwed;
         break;
         
         case 2:
         taxOwed = tax - userWithheld;
+        cout << "You still owe $";
         return taxOwed;
         break;
         
