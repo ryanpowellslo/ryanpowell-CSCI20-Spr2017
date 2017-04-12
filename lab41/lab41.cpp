@@ -27,7 +27,7 @@ class ArrayTools {                  //class contains my constructor and mutators
         int funcArray[10];
         
     public:
-        void MyArray(int size, int userArray[NUM_VAL]);
+        void MyArray(int userArray[]);
         void Print ();
         int Find_min ();
         int Find_max ();
@@ -39,7 +39,7 @@ class ArrayTools {                  //class contains my constructor and mutators
         
 };
 
-void ArrayTools::MyArray(int userArray[NUM_VAL]) {   //Setting up my constructor is still giving me problems
+void ArrayTools::MyArray(int userArray[]) {   //Setting up my constructor is still giving me problems
     
     for(int i = 0; i < NUM_VAL; i++){       //I'll have to see you at your office hours, the compiler is very confusing
         funcArray[i] = userArray[i];
@@ -65,7 +65,7 @@ void ArrayTools::Print () {         //Prints out array elements
 int ArrayTools::Find_min() {        //Compares element values to find min
     
     minVal = funcArray[0];
-    for(int i = 0; i , NUM_VAL; i++){
+    for(int i = 0; i < NUM_VAL; i++){
         if(minVal > funcArray[i]){
             minVal = funcArray[i];
         }
@@ -108,7 +108,7 @@ void ArrayTools::Is_sorted(){               //Checks to make sure each element i
     
     for(int i =0; i < NUM_VAL; i++){
         while(funcArray[i] < funcArray[i+1]){
-            if(i == 9){
+            if(i == 8){
                 cout << "In order" << endl;
                 return;
             }
@@ -145,16 +145,17 @@ int main() {
     for(int i = 0; i<SIZE;i++){
         cin>>myArray[i];
     }
-    ArrayTools a(myArray);
+    ArrayTools a;
     a.MyArray(myArray);
     
     a.Print();
     cout<<"Min: "<<a.Find_min()<<endl;
     cout<<"Max: "<<a.Find_max()<<endl;
     cout<<"Sum = "<<a.Find_sum()<<endl;
-    cout<<"Search 10"<<a.Search(10)<<endl;
-    cout<<"Sorted? "<<a.Is_sorted()<<endl;
-    cout << a.Even_odd << endl; 
+    cout<<"Search 10, location: "<<a.Search(10)<<endl;
+    cout<<"Sorted? ";
+    a.Is_sorted();
+    a.Even_odd(); 
     
 
     return 0;
