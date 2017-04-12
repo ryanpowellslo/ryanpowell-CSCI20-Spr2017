@@ -12,36 +12,36 @@ using namespace std;
 
 
 
-class ArrayTools {
+class ArrayTools {                  //class contains my constructor and mutators for examining and manipulating the array
     
-    public:
-        void MyArray(int userArray[NUM_VAL]);
-        void Print ();
-        int Find_min ();
-        int Find_max ();
-        int FindVal ();
-        int Search ();
-        int Find_sum ();
-        void Is_sorted ();
+    
         
     private:
-        int maxVal = 0;
-        int minVal = 0;
+        int maxVal = 0;             //My private values make it easier for me to access the array by creating a private
+        int minVal = 0;             //member variable array
         int sumVal = 0;
         int cntEven = 0;
         int cntOdd = 0;
         int specVal = 0;
-        int size = 10;
         const int NUM_VAL = 10;
         int funcArray[10];
+        
+    public:
+        void MyArray(int size, int userArray[NUM_VAL]);
+        void Print ();
+        int Find_min ();
+        int Find_max ();
+        int Search (int specVal);
+        int Find_sum ();
+        void Is_sorted ();
+        void Even_odd();
         
         
 };
 
-void ArrayTools::MyArray(int userArray[NUM_VAL]) {
+void ArrayTools::MyArray(int userArray[NUM_VAL]) {   //Setting up my constructor is still giving me problems
     
-    int i = 0;
-    for(i = 0; i < NUM_VAL; i++){
+    for(int i = 0; i < NUM_VAL; i++){       //I'll have to see you at your office hours, the compiler is very confusing
         funcArray[i] = userArray[i];
     }
 
@@ -51,15 +51,91 @@ void ArrayTools::MyArray(int userArray[NUM_VAL]) {
 
 
 
-void ArrayTools::Print () {
-    int i = 0;
-    for(i = 0; i < NUM_VAL; i++){
+void ArrayTools::Print () {         //Prints out array elements
+    
+    for(int i = 0; i < NUM_VAL; i++){
         cout << funcArray[i] << endl;
         
     }
 
     return;
 }
+
+
+int ArrayTools::Find_min() {        //Compares element values to find min
+    
+    minVal = funcArray[0];
+    for(int i = 0; i , NUM_VAL; i++){
+        if(minVal > funcArray[i]){
+            minVal = funcArray[i];
+        }
+    }
+
+    return minVal;
+}
+
+int ArrayTools::Find_max() {        //Compares element values to find max
+    
+    maxVal = funcArray[0];
+    for(int i = 0; i < NUM_VAL; i++) {
+        if(maxVal < funcArray[i]){
+            maxVal = funcArray[i];
+        }
+    }
+    return maxVal;
+}
+
+int ArrayTools::Search (int specVal){           //Attempts to find a specific value in the array
+    
+    for(int i = 0; i < NUM_VAL; i++){
+        if(funcArray[i] == specVal){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int ArrayTools::Find_sum(){                 //Sums all the values of each element in the array
+    
+    for(int i = 0; i < NUM_VAL; i++){
+        sumVal = sumVal + funcArray[i];
+    }
+
+    return sumVal;
+}
+
+void ArrayTools::Is_sorted(){               //Checks to make sure each element is a lesser value than the next
+    
+    for(int i =0; i < NUM_VAL; i++){
+        while(funcArray[i] < funcArray[i+1]){
+            if(i == 9){
+                cout << "In order" << endl;
+                return;
+            }
+        }
+    }
+    cout << "Not in order" << endl;
+    return;
+}
+
+void ArrayTools::Even_odd(){            //Keeps track of and outputs number of even and odd values
+    
+    for(int i = 0; i < NUM_VAL; i++){
+        if(funcArray[i] % 2 == 0){
+            cntEven++;
+        }
+        else {
+            cntOdd++;
+        }
+    }
+    cout << "Evens: " << cntEven << "   " << "Odds: " << cntOdd << endl;
+    return;
+}
+
+
+
+
+
 
 int main() {
   
@@ -70,13 +146,15 @@ int main() {
         cin>>myArray[i];
     }
     ArrayTools a(myArray);
+    a.MyArray(myArray);
     
     a.Print();
-    cout<<"Min: "<<a.Find_min(0, 4)<<endl;
-    cout<<"Max: "<<a.Find_max(5, 10)<<endl;
+    cout<<"Min: "<<a.Find_min()<<endl;
+    cout<<"Max: "<<a.Find_max()<<endl;
     cout<<"Sum = "<<a.Find_sum()<<endl;
     cout<<"Search 10"<<a.Search(10)<<endl;
     cout<<"Sorted? "<<a.Is_sorted()<<endl;
+    cout << a.Even_odd << endl; 
     
 
     return 0;
